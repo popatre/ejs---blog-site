@@ -1,11 +1,15 @@
-<%- include("./partials/header"); -%>
+<%- include("./partials/header") -%>
 
 <h1>Home</h1>
 <p><%=homeStartingContent%></p>
 
 <% posts.forEach(a => { %>
 <h1><%=a.title %></h1>
-<p><%=a.body %></p>
+<% const truncated = a.body.substring(0, 100) + "..." %>
+<p>
+    <%=truncated %>
+    <a href="/posts/<%= a.title %>">Read More</a>
+</p>
 <% }) %>
 
 <!---->
