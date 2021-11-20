@@ -3,12 +3,13 @@
 <h1>Home</h1>
 <p><%=homeStartingContent%></p>
 
-<% posts.forEach(a => { %>
-<h1><%=a.title %></h1>
-<% const truncated = a.body.substring(0, 100) + "..." %>
+<% posts.forEach(post => { %>
+<h1><%=post.title %></h1>
+<% const truncate = post.content.substring(0, 300) %>
 <p>
-    <%=truncated %>
-    <a href="/posts/<%= a.title %>">Read More</a>
+    <!-- <%=post.content %> -->
+    <%=truncate %>
+    <a href="/posts/<%= post._id %>">Read More</a>
 </p>
 <% }) %>
 
