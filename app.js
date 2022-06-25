@@ -5,6 +5,8 @@ const path = require("path");
 const _ = require("lodash");
 const { postSchema, Post } = require("./models/db");
 
+let port = process.env.PORT;
+
 const { getAllPosts } = require("./controllers/home-controller");
 const {
     showCompose,
@@ -45,6 +47,10 @@ app.post("/compose", postNewPost);
 
 app.get("/posts/:post", viewPost);
 
-app.listen(3000, () => {
-    console.log("Server started on port 3000");
+if (port == null || port == "") {
+    port = 3000;
+}
+
+app.listen(port, () => {
+    console.log("Server started successfully!");
 });
