@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const path = require("path");
 const _ = require("lodash");
 const { postSchema, Post } = require("./models/db");
+require("dotenv").config();
 
 let port = process.env.PORT;
 
@@ -15,8 +16,10 @@ const {
 const { viewPost } = require("./controllers/posts-controller");
 const app = express();
 
+const password = process.env.PASSWORD;
+
 mongoose.connect(
-    "mongodb+srv://admin-jon:qwerty111@cluster0.bmmtfjt.mongodb.net/?retryWrites=true&w=majority/blogDB",
+    `mongodb+srv://admin-jon:${password}@cluster0.bmmtfjt.mongodb.net/?retryWrites=true&w=majority/blogDB`,
     { useNewUrlParser: true }
 );
 postSchema;
