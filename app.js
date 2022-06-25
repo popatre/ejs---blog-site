@@ -13,7 +13,10 @@ const {
 const { viewPost } = require("./controllers/posts-controller");
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser: true });
+mongoose.connect(
+    "mongodb+srv://admin-jon:qwerty111@cluster0.bmmtfjt.mongodb.net/?retryWrites=true&w=majority/blogDB",
+    { useNewUrlParser: true }
+);
 postSchema;
 Post;
 
